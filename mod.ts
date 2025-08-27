@@ -1,12 +1,25 @@
 // Copyright (c) 2025 Ariel Mutebi
 
+/**
+ * @module database-chores
+ *
+ * Little helper functions for working with PostgreSQL in Deno:
+ * - `executeSQLFromFile` executes SQL from a file.
+ * - `recaseKeys` converts object keys from snake_case to camelCase.
+ *
+ * Usage:
+ * ```ts
+ * import { executeSQLFromFile, recaseKeys } from "jsr:@ariel/database-chores";
+ * ```
+ */
+
 // @ts-types="npm:@types/pg@^8.15.5";
 import { Client } from "npm:pg@^8.16.3"; 
 import type { PoolConfig, QueryResult } from "npm:pg@^8.16.3";
 import type ObjectWithStringKeys from "./ObjectWithStringKeys.ts";
 
 /**
- * Executes SQL code from a file using a PostgreSQL client.
+ * Executes SQL from a file using a PostgreSQL client.
  *
  * @async
  * @param {string} absolutePathToSQLFile - The absolute path to the SQL file to execute.
