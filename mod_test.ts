@@ -1,8 +1,8 @@
 import { assertEquals } from "@std/assert";
 import { executeSQLFromFile, recaseKeys } from "./mod.ts";
 import { join } from "jsr:@std/path";
-import { QueryResult } from "npm:pg";
-import ObjectWithStringKeys from "./ObjectWithStringKeys.ts";
+import type { QueryResult } from "npm:pg";
+import type ObjectWithStringKeys from "./ObjectWithStringKeys.ts";
 import 'jsr:@std/dotenv/load';
 
 Deno.test("executeSQLFromFile", async() => {

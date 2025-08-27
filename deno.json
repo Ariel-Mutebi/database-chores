@@ -1,4 +1,8 @@
 {
+  "name": "@ariel/database-chores",
+  "version": "1.0.0",
+  "exports": "./mod.ts",
+  "license": "MIT",
   "tasks": {
     "test": "deno test --allow-env --allow-read --allow-net"
   },
