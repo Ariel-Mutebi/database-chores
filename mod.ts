@@ -27,7 +27,7 @@ import type ObjectWithStringKeys from "./ObjectWithStringKeys.ts";
  */
 
 // deno-lint-ignore no-explicit-any
-async function executeSQLFromFile(absolutePathToSQLFile: string, config: PoolConfig): Promise<QueryResult<ObjectWithStringKeys<any>> | undefined> {
+export async function executeSQLFromFile(absolutePathToSQLFile: string, config: PoolConfig): Promise<QueryResult<ObjectWithStringKeys<any>> | undefined> {
   try{
     console.log("Reading from SQL file...");
     const sql = await Deno.readTextFile(absolutePathToSQLFile);
@@ -66,7 +66,7 @@ function snakeCaseToCamelCase(snakeCaseString: string) {
  * console.log(camelObj); // { firstName: "Alice", lastName: "Smith" }
  * ```
  */
-function recaseKeys<T>(objectWithSnakeCaseKeys: ObjectWithStringKeys<T>): ObjectWithStringKeys<T> {
+export function recaseKeys<T>(objectWithSnakeCaseKeys: ObjectWithStringKeys<T>): ObjectWithStringKeys<T> {
   const objectWithCamelCaseKeys: ObjectWithStringKeys<T> = {};
   for (const key of Object.keys(objectWithSnakeCaseKeys)) {
     if(key.includes("_")) {
@@ -77,5 +77,3 @@ function recaseKeys<T>(objectWithSnakeCaseKeys: ObjectWithStringKeys<T>): Object
   };
   return objectWithCamelCaseKeys;
 };
-
-export { executeSQLFromFile, recaseKeys };
