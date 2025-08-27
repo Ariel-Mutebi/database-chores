@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "test": "deno test --allow-env --allow-read --allow-net"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1",
+    "@types/pg": "npm:@types/pg@^8.15.5",
+    "pg": "npm:pg@^8.16.3"
+  }
+}
