@@ -1,9 +1,10 @@
 // @ts-types='npm:@types/pg';
 import { Client } from 'npm:pg'; 
-import type { PoolConfig } from "npm:pg";
+import type { PoolConfig, QueryResult } from "npm:pg";
 import ObjectWithStringKeys from "./ObjectWithStringKeys.ts";
 
-async function executeSQLFromFile(absolutePathToSQLFile: string, config: PoolConfig) {
+// deno-lint-ignore no-explicit-any
+async function executeSQLFromFile(absolutePathToSQLFile: string, config: PoolConfig): Promise<QueryResult<ObjectWithStringKeys<any>> | undefined> {
   try{
     console.log("Reading from SQL file...");
     const sql = await Deno.readTextFile(absolutePathToSQLFile);
@@ -28,7 +29,7 @@ function snakeCaseToCamelCase(snakeCaseString: string) {
   return joinedCamelCase;
 };
 
-function recaseKeys<T>(objectWithSnakeCaseKeys: ObjectWithStringKeys<T>) {
+function recaseKeys<T>(objectWithSnakeCaseKeys: ObjectWithStringKeys<T>): ObjectWithStringKeys<T> {
   const objectWithCamelCaseKeys: ObjectWithStringKeys<T> = {};
   for (const key of Object.keys(objectWithSnakeCaseKeys)) {
     if(key.includes("_")) {
