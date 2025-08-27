@@ -1,5 +1,3 @@
-// Copyright (c) 2025 Ariel Mutebi
-
 /**
  * @module database-chores
  *
@@ -13,6 +11,7 @@
  * ```
  */
 
+// Copyright (c) 2025 Ariel Mutebi.
 // @ts-types="npm:@types/pg@^8.15.5";
 import { Client } from "npm:pg@^8.16.3"; 
 import type { PoolConfig, QueryResult } from "npm:pg@^8.16.3";
